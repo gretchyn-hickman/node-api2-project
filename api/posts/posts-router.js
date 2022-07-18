@@ -59,7 +59,10 @@ router.put('/:id', async (req, res) => {
             if (!title || !contents) {
                 res.status(400).json({ message: "Please provide title and contents for the post" })
             } else{
-                
+                Post.update(req.params.id, {title, contents})
+                .then(stuff => {
+                    console.log(stuff)
+                })
             }
 
         }
